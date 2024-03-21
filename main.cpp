@@ -13,6 +13,7 @@
 #include <algorithm>
 #include <cmath>
 #include <queue>
+#include <conio.h>
 
 using namespace std;
 
@@ -145,7 +146,7 @@ int main()
         cout <<'\n' << error_message << '\n';
     }
 
-    cin.get();
+    getch();
     
     return 0;
 }
