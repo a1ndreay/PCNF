@@ -145,7 +145,7 @@ int main()
         cout <<'\n' << error_message << '\n';
     }
 
-    getchar();
+    cin.get();
     
     return 0;
 }
