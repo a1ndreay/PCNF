@@ -4,14 +4,14 @@
 // Allows simple variables using single letters A-Z
 // By Andrey Zorkin a.k.a @a1ndreay (a1handreay@gmail.com) 17:29 21/03/2024
 
+#include "ctrpn.h"
+#include "rpn.h"
 #include <iostream>
 #include <map>
 #include <vector>
 #include <algorithm>
 #include <cmath>
 #include <queue>
-#include "rpn.cpp"
-#include "ctrpn.cpp"
 
 using namespace std;
 

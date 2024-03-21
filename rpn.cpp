@@ -12,11 +12,7 @@
 #define PI 3.14159265359
 #define _CRT_SECURE_NO_WARNINGS
 
-#include <iostream>
-#include <algorithm>
-#include <cctype>
-#include <cstring>
-#include <cmath>
+#include "rpn.h"
 
 using namespace std;
 using std::cout;

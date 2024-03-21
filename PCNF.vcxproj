@@ -124,7 +124,8 @@
     <ClCompile Include="rpn.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="strpn.h" />
+    <ClInclude Include="rpn.h" />
+    <ClInclude Include="ctrpn.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
