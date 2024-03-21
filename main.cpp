@@ -31,13 +31,13 @@ string makeSKNF(map<char, vector<bool>> sourcePropositionalChar, vector<char> Pr
     string currentAnswer;
     for(int i = 0; i<PropositionalCharRank; i++)
     {
-        if(sourcePropositionalChar['#'][i] == __null)
+        if(sourcePropositionalChar['#'][i] == NULL)
         {
             if(i>0) currentAnswer+="∧";
             string tempResult = "(";
             for(int j = 0; j<PropositionalCharCollection.size(); j++)
             {
-                if(sourcePropositionalChar[(char)(PropositionalCharCollection[j])][i]==__null)
+                if(sourcePropositionalChar[(char)(PropositionalCharCollection[j])][i]==NULL)
                 {
                     tempResult+=PropositionalCharCollection[j];
                 }
