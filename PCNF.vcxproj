@@ -123,6 +123,9 @@
     <ClCompile Include="main.cpp" />
     <ClCompile Include="rpn.cpp" />
   </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="strpn.h" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
