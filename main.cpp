@@ -144,6 +144,8 @@ int main()
     {
         cout <<'\n' << error_message << '\n';
     }
+
+    getchar();
     
     return 0;
 }
