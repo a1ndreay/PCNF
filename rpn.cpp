@@ -294,7 +294,7 @@ bool RpnCalc(std::string expression){
 						Push(get_var(tok[0]));
 					}
 					else{
-						throw std::runtime_error("Unknown Token Found.");
+						throw ("Unknown Token Found.");
 						return false;
 					}
 					break;
