@@ -494,7 +494,7 @@ bool RpnCalc(std::string expression){
 			//Push result onto stack
 		}
 		else{
-			throw std::runtime_error("Invaild Expression.");
+			throw ("Unknown Token Found.");
 			break;
 		}
 	}
