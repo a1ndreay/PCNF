@@ -11,9 +11,9 @@
 #include <string>
 
 //конвертирует некоторые знаки из строки на эквивалентные выражения
-void toNoramlForm(string &sourceString)
+void toNoramlForm(std::string &sourceString)
 {
-    string tempString = "";
+    std::string tempString = "";
     for (auto x : sourceString) 
     {
         switch(x)
