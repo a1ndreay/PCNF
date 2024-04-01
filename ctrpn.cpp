@@ -3,7 +3,7 @@
 // renewal by Zorkin Andrey a.k.a @a1ndreay Added partial support for logical operators 21/03/2024
 //перевод строкового выражения в ОПЗ, учитывая логические операторы
 
-#include "ctrpn.h"
+#include "lFunctions.h"
 
 //конвертирует некоторые знаки из строки на эквивалентные выражения
 void toNoramlForm(std::string &sourceString)

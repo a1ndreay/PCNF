@@ -12,7 +12,7 @@
 #define PI 3.14159265359
 #define _CRT_SECURE_NO_WARNINGS
 
-#include "rpn.h"
+#include "lFunctions.h"
 
 using namespace std;
 using std::cout;

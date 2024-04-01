@@ -120,12 +120,12 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="ctrpn.cpp" />
+    <ClCompile Include="lFunctions.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="rpn.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="rpn.h" />
-    <ClInclude Include="ctrpn.h" />
+    <ClInclude Include="lFunctions.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
