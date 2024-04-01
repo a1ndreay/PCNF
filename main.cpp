@@ -28,8 +28,9 @@ string btos(bool x)
 
 //generation PCNF string via prepared truth table
 //по заполненной таблице истинности генерируем СКНФ
-string makeSKNF(map<char, vector<bool>> sourcePropositionalChar, vector<char> PropositionalCharCollection, int const PropositionalCharRank)
+string makeSKNF(map<char, vector<bool>> sourcePropositionalChar, vector<char> PropositionalCharCollection)
 {
+    int PropositionalCharRank = pow(2, PropositionalCharCollection.size());
     string currentAnswer;
     for(int i = 0; i<PropositionalCharRank; i++)
     {
@@ -57,8 +58,9 @@ string makeSKNF(map<char, vector<bool>> sourcePropositionalChar, vector<char> Pr
     if(currentAnswer.size()==0){throw "FORM NOT EXIST!";}
     return currentAnswer;
 }
-string makeSDNF(map<char, vector<bool>> sourcePropositionalChar, vector<char> PropositionalCharCollection, int const PropositionalCharRank)
+string makeSDNF(map<char, vector<bool>> sourcePropositionalChar, vector<char> PropositionalCharCollection)
 {
+    int PropositionalCharRank = pow(2, PropositionalCharCollection.size());
     string currentAnswer;
     for (int i = 0; i < PropositionalCharRank; i++)
     {
@@ -197,15 +199,15 @@ int main()
         toNoramlForm(convertedToReversePilish); //в обратной польской записи меняем логические знаки на эквивалентные им слова and, or, equal и т.п.
         cout<<"[ReversePolishString.Normal]->"<<convertedToReversePilish<<endl;
         fillTable(convertedToReversePilish, PropositionalChar, PropositionalCharRank); //заполняем таблицу истинности
-        string SKNFANSWER = makeSKNF(PropositionalChar, PropositionalCharCollection, PropositionalCharRank);
+        string SKNFANSWER = makeSKNF(PropositionalChar, PropositionalCharCollection);
         cout<<endl<<SKNFANSWER<<endl;
-        string DNFANSWER = makeSDNF(PropositionalChar, PropositionalCharCollection, PropositionalCharRank);
+        string DNFANSWER = makeSDNF(PropositionalChar, PropositionalCharCollection);
         cout << endl << DNFANSWER << endl;
         */
         forceUnpack(vector<int> {1, 0, 0, 1, 0, 1, 0, 1}, PropositionalChar);
-        string DNFANSWER = makeSDNF(PropositionalChar, vector<char> {'x','y','z'}, 8);
+        string DNFANSWER = makeSDNF(PropositionalChar, vector<char> {'x','y','z'});
         cout << "SDNF = " << endl << DNFANSWER << endl;
-        string SKNFANSWER = makeSKNF(PropositionalChar, vector<char> {'x', 'y', 'z'}, 8);
+        string SKNFANSWER = makeSKNF(PropositionalChar, vector<char> {'x', 'y', 'z'});
         cout << "SKNF = " << endl << SKNFANSWER << endl;
     }
     catch(const char* error_message)
