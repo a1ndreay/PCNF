@@ -35,7 +35,7 @@ string makeSKNF(map<char, vector<bool>> sourcePropositionalChar, vector<char> Pr
     {
         if(sourcePropositionalChar['#'][i] == NULL)
         {
-            if(i>0) currentAnswer+="∧";
+            if(i>0 && currentAnswer.length() > 0) currentAnswer+="∧";
             string tempResult = "(";
             for(int j = 0; j<PropositionalCharCollection.size(); j++)
             {
@@ -55,6 +55,35 @@ string makeSKNF(map<char, vector<bool>> sourcePropositionalChar, vector<char> Pr
         }
     }
     if(currentAnswer.size()==0){throw "FORM NOT EXIST!";}
+    return currentAnswer;
+}
+string makeSDNF(map<char, vector<bool>> sourcePropositionalChar, vector<char> PropositionalCharCollection, int const PropositionalCharRank)
+{
+    string currentAnswer;
+    for (int i = 0; i < PropositionalCharRank; i++)
+    {
+        if (sourcePropositionalChar['#'][i] != NULL)
+        {
+            if (i > 0 && currentAnswer.length()>0) currentAnswer += "v";
+            string tempResult = "(";
+            for (int j = 0; j < PropositionalCharCollection.size(); j++)
+            {
+                if (sourcePropositionalChar[(char)(PropositionalCharCollection[j])][i] != NULL)
+                {
+                    tempResult += PropositionalCharCollection[j];
+                }
+                else
+                {
+                    tempResult += "!"; tempResult += PropositionalCharCollection[j];
+                }
+                if (j < PropositionalCharCollection.size() - 1)
+                    tempResult += "∧";
+            }
+            tempResult += ")";
+            currentAnswer += tempResult;
+        }
+    }
+    if (currentAnswer.size() == 0) { throw "FORM NOT EXIST!"; }
     return currentAnswer;
 }
 
@@ -115,7 +144,6 @@ void unpack(string const sourceString, map<char, vector<bool>> &sourcePropositio
         step /= 2;
         currentPropQueue.pop();
     }
-    
 }
 
 int main()
@@ -140,6 +168,8 @@ int main()
         fillTable(convertedToReversePilish, PropositionalChar, PropositionalCharRank); //заполняем таблицу истинности
         string SKNFANSWER = makeSKNF(PropositionalChar, PropositionalCharCollection, PropositionalCharRank);
         cout<<endl<<SKNFANSWER<<endl;
+        string DNFANSWER = makeSDNF(PropositionalChar, PropositionalCharCollection, PropositionalCharRank);
+        cout << endl << DNFANSWER << endl;
     }
     catch(const char* error_message)
     {
