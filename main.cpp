@@ -146,6 +146,36 @@ void unpack(string const sourceString, map<char, vector<bool>> &sourcePropositio
     }
 }
 
+//составим таблицу истинности по вектору ответов функции
+void forceUnpack(vector<int> _functionValues, map<char, vector<bool>> &sourcePropositionalChar)
+{
+    char dictionary[] = { 'x','y','z','a','b','c'};
+    int PropositionalCharRank = _functionValues.size();
+    int sourcePropositionalCharSize = log2((double)PropositionalCharRank);
+    int step = PropositionalCharRank / 2;
+    for (int i = 0; i < sourcePropositionalCharSize; i++)
+    {
+        char currentSymbol = dictionary[i];
+        for (int k = 0; k < PropositionalCharRank / (step * 2); k++)
+        {
+            for (int j = 0; j < (step); j++)
+            {
+                sourcePropositionalChar[currentSymbol].push_back(NULL);
+            }
+            for (int j = 0; j < (step); j++)
+            {
+                sourcePropositionalChar[currentSymbol].push_back(true);
+            }
+        }
+        step /= 2;
+    }
+    for (int i = 0; i < PropositionalCharRank; i++)
+    {
+        sourcePropositionalChar['#'].push_back(_functionValues[i]);
+        //cout << tempStr << " | " << sourcePropositionalChar['#'][i]; //дополнительный вектор на ответы
+    }
+}
+
 int main()
 {
     map<char, vector<bool>> PropositionalChar;
@@ -160,6 +190,7 @@ int main()
 
     try
     {
+        /*
         unpack(input, PropositionalChar, PropositionalCharCollection, PropositionalCharRank); //вычленяем из строки все Пропозициональные символы и создаём таблицу истинности
         string convertedToReversePilish = RPN(input); //convert to reverse polish notation учитывая что знаки логические
         cout<<"[ReversePolishString       ]->"<<convertedToReversePilish<<endl;
@@ -170,6 +201,12 @@ int main()
         cout<<endl<<SKNFANSWER<<endl;
         string DNFANSWER = makeSDNF(PropositionalChar, PropositionalCharCollection, PropositionalCharRank);
         cout << endl << DNFANSWER << endl;
+        */
+        forceUnpack(vector<int> {1, 0, 0, 1, 0, 1, 0, 1}, PropositionalChar);
+        string DNFANSWER = makeSDNF(PropositionalChar, vector<char> {'x','y','z'}, 8);
+        cout << "SDNF = " << endl << DNFANSWER << endl;
+        string SKNFANSWER = makeSKNF(PropositionalChar, vector<char> {'x', 'y', 'z'}, 8);
+        cout << "SKNF = " << endl << SKNFANSWER << endl;
     }
     catch(const char* error_message)
     {
