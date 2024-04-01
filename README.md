@@ -4,14 +4,14 @@
 // Allows simple variables using single letters A-Z
 // By Andrey Zorkin a.k.a @a1ndreay (a1handreay@gmail.com) 17:29 21/03/2024
 
-//пример вызова функций
-int main()
-{
-    map<char, vector<bool>> PropositionalChar; //таблица истинности 
-    //string input; //A+C+(A~B)*!C
-    //vector<char> PropositionalCharCollection;
-    //int PropositionalCharRank;
-    //helpAnnotation();
+    //пример вызова функций
+    int main()
+    {
+        map<char, vector<bool>> PropositionalChar; //таблица истинности 
+        //string input; //A+C+(A~B)*!C
+        //vector<char> PropositionalCharCollection;
+        //int PropositionalCharRank;
+        //helpAnnotation();
 
     try
     {
@@ -41,4 +41,4 @@ int main()
     getch();
     
     return 0;
-}
+    }
